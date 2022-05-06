@@ -1,0 +1,5 @@
+Package: placeholder
+Type: Book
+Tittle: Estimación de áreas pequeñas
+Version: 0.0.1
+Remotes: rstudio/bookdown
