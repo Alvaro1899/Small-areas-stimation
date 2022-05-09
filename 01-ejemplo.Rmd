@@ -1,0 +1,90 @@
+# Modelo Fay-Herriot (FH) en R
+
+ <div style="text-align: justify">
+Para realizar la estimación de este modelo se utilizará el ejemplo que proporciona el paquete "sae" con el conjunto de datos "milk"
+
+```{r message=FALSE, warning=FALSE}
+if (!require('sae', quietly = TRUE)) {install.packages('sae') } 
+library(sae)
+
+```
+```{r}
+data("milk")
+? milk
+str (milk)
+```
+
+(original)[https://statisticsglobe.com/small-area-estimation-r#fay-herriot-fh-model]
+
+la base _"milk"_ se basa en información de encuestas de la Oficina de Estadísticas Laborales de EE. UU. Estimaron los gastos de consumo semanales en diferentes bienes, como la leche entera fresca en 1989, por medio de una muestra de encuesta. Con base en la muestra de la encuesta, calcularon estimaciones directas sobre el consumo semanal promedio de leche entera fresca para 43 áreas de publicación en los EE. UU.
+
+Con str(milk) , vemos que los datos consisten en 43 observaciones, una para cada área de publicación. La variable SmallArea es el identificador de las áreas de publicación. ni es el tamaño de la muestra de la encuesta en cada área, $y_i$ son las estimaciones directas de la encuesta sobre el consumo semanal promedio de leche entera fresca en 1989. Las estimaciones directas no tienen sesgo de diseño, la varianza es una medida de su precisión. Variable SD es la desviación estándar (SD) de las estimaciones directas. La desviación estándar es la raíz cuadrada de la varianza.
+
+
+Además, vemos el coeficiente de variación (CV) de las estimaciones. También podemos calcularlo mediante la siguiente línea de código.
+
+
+```{r}
+milk$SD /milk$yi
+
+```
+
+Si se observa el rango de los CV se observara que las estimaciones directas son bastantes volátiles. 
+
+```{r}
+range(milk$CV * 100)
+```
+
+
+Por lo tanto, es bastante razonable que las áreas de publicación se denominen SmallArea en leche de datos .
+
+Veamos si podemos obtener estimaciones más precisas aplicando modelos de áreas pequeñas basados en modelos. Los datos de la encuesta solo están disponibles a nivel de área en forma de estimaciones directas y las varianzas correspondientes. Por lo tanto, solo podemos calcular un modelo de área pequeña a nivel de área como el modelo de Fay-Herriot.
+
+Para eso, necesitamos información auxiliar . Más precisamente, necesitamos información a nivel de las áreas de publicación. En este ejemplo, solo consideramos una variable auxiliar. MajorArea es una variable que agrupa varias áreas de publicación en un área principal. _You y Chapman (2006)_ discuten cómo formar estas áreas principales.
+
+Tenemos todos los datos que necesitamos. Calculemos el modelo FH.
+
+```{r}
+?mseFH # Documentation
+mod_FH <- mseFH(formula   = milk$yi ~ as.factor(milk$MajorArea), 
+                vardir    = milk$SD^2,
+                method    = "REML",
+                MAXITER   = 100,
+                PRECISION = 10^(-4),
+                B         = 0)
+# fórmula: Las estimaciones directas de la encuesta milk$yi son la variable dependiente, 
+# as.factor(milk$MajorArea) es la variable auxiliar. 
+# vardir: Varianza de las estimaciones directas. 
+# método: método utilizado para estimar los parámetros del modelo, 
+# REML es de máxima verosimilitud restringida. 
+# MAXITER: Número máximo de iteraciones para el algoritmo Fisher-Scoring. 
+# PRECISIÓN: Límite de tolerancia de convergencia para el algoritmo de puntuación de Fisher. 
+# B: Número de réplicas de bootstrap para medidas de bondad de ajuste.
+
+```
+
+La salida del modelo es una lista. $est$eblup nos da los mejores predictores lineales imparciales empíricos (EBLUP) del modelo. El error cuadrático medio estimado (MSE) de los EBLUP se puede ver usando $mse . En el modelo FH, podemos aproximar el MSE analíticamente y no necesitamos un procedimiento de arranque.
+
+Podemos calcular el coeficiente de variación (CV) , CV = raíz MSE del valor estimado / valor estimado * 100, de los EBLUP.
+
+```{r}
+FH_CV <- 100 * sqrt(mod_FH$mse) / mod_FH$est$eblup
+```
+
+
+
+Echamos un vistazo a los resultados del modelo para las primeras 6 áreas de publicación.
+```{r}
+head(data.frame(Publ_Area    = milk$SmallArea,
+                Sample_Size  = milk$ni,
+                Dir          = round(milk$yi, digits = 2), 
+                Dir_CV       = round(milk$CV * 100, digits = 2), 
+                FH_EBLUP     = round(mod_FH$est$eblup, digits = 2), 
+                FH_CV        = round(FH_CV, digits = 2)))
+```
+ 
+Esto se ve muy bien. El CV de las EBLUP es inferior al CV de los estimadores directos. Va desde 7-17.5%. ¡Buen trabajo!
+```{r}
+range(FH_CV )
+```
+Para resumir, calculamos un modelo FH para predecir el consumo promedio semanal de leche entera fresca para 43 áreas de publicación en los EE. UU. Las estimaciones directas de la Oficina de Estadísticas Laborales de EE. UU. para estas áreas se asociaron con altos coeficientes de variación. Con el modelo FH, obtuvimos estimaciones más precisas.
