@@ -1,196 +1,107 @@
 <!DOCTYPE html>
-<html lang="es" xml:lang="es">
+<html lang="es">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Estimación en areas pequeñas</title>
-  <meta name="description" content="Estimación en areas pequeñas" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Estimación en areas pequeñas" />
-  <meta property="og:type" content="book" />
-  
-  
-  
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Estimación en areas pequeñas" />
-  
-  
-  
-
-<meta name="author" content="Alvaro Martínez Rodríguez" />
-
-
-<meta name="date" content="2022-05-09" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-
-
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Introducción | Estimación en areas pequeñas</title>
+<meta name="author" content="Alvaro Martínez Rodríguez">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
+<meta property="og:title" content="Introducción | Estimación en areas pequeñas">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Introducción | Estimación en areas pequeñas">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 <style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<meta name="description" content="A book created with bookdown.">
+<meta property="og:description" content="A book created with bookdown.">
+<meta name="twitter:description" content="A book created with bookdown.">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li><a href="./">Estimación en Áreas Pequeñas</a></li>
-
-<li class="divider"></li>
-<li class="chapter" data-level="" data-path=""><a href="#introducción"><i class="fa fa-check"></i>Introducción</a>
-<ul>
-<li class="chapter" data-level="" data-path=""><a href="#antecedentes"><i class="fa fa-check"></i>Antecedentes</a></li>
-</ul></li>
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Estimación en areas pequeñas</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estimación en areas pequeñas</a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="active" href="index.html">Introducción</a></li></ul>
+
+        <div class="book-extra">
+          
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Estimación en areas pequeñas</h1>
-<p class="author"><em>Alvaro Martínez Rodríguez</em></p>
-<p class="date"><em>2022-05-09</em></p>
+      </nav>
 </div>
-<div id="introducción" class="section level1 unnumbered hasAnchor">
-<h1>Introducción<a href="#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="introducción" class="section level1 unnumbered">
+<h1>Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n"><i class="fas fa-link"></i></a>
+</h1>
 <div style="text-align: justify">
 <p>Las técnicas de estimación en áreas pequeñas (EAP) han cobrado relevancia a lo largo de los años, pues resuelve los problemas que generan la falta de información en la inferencia estadística clásica. De forma general, el método consiste en la utilización de censos o encuestas y de información auxiliar para “tomar prestada la fuerza” y mejorar las estimaciones. El término “área pequeña” hace referencia a un área geográfica pequeña para la cual la muestra tomada de ella es insuficiente o no existe. Estas áreas suelen ser municipios, comarcas, alcaldías o sub-poblaciones.</p>
 <p>Para explicar de mejor manera a que se llama <em>área pequeña</em> se ilustra el siguiente ejemplo:</p>
 <p>Tenemos el siguiente cuadrado que representa un país 1.1 que esta subdividido en 9 entidades y se saca una muestra aleatoria representativa de cada entidad para observar el promedio del ingreso de cada sub-población. Con esto no tendríamos ningún problema para elaborar algún modelo de estimación del ingreso en el país (estimaciones directas), sin embargo, si quisiéramos trabajar con un nivel geográfico más pequeño, un municipio, por ejemplo, es probable que la muestra tomada de cada sub-población resulte insuficiente para realizar estimaciones puesto que habrá municipios de los que se tomó una mayor muestra o que ni siquiera estén representados. A estas se les conoce áreas pequeñas y se recurre a técnicas estadísticas especiales (estimaciones indirectas) para su estimación ya que resulta mucho más barato que tomar una mayor muestra. <strong>(Como se puede citar un video de youtube)</strong></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="imagenes/Imagen%201.1.png" alt="Áreas pequeñas" width="100%" />
-<p class="caption">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="imagenes/Imagen%201.1.png" alt="Áreas pequeñas" width="100%"><p class="caption">
 Figure 1: Áreas pequeñas
 </p>
 </div>
-<div id="antecedentes" class="section level2 unnumbered hasAnchor">
-<h2>Antecedentes<a href="#antecedentes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="antecedentes" class="section level2 unnumbered">
+<h2>Antecedentes<a class="anchor" aria-label="anchor" href="#antecedentes"><i class="fas fa-link"></i></a>
+</h2>
 <p>Las EAP evolucionaron de métodos demográficos para la estimación de la población <span class="citation">(<a href="#ref-Gosh&amp;Rao1994" role="doc-biblioref">Ghosh y Rao 1994, 55-93</a>)</span> <span class="citation">(<a href="#ref-Mancho2002" role="doc-biblioref">Jesus 2002, 3</a>)</span>. Antes de los censos utilizaban registros administrativos poblacionales como nacimientos, muertes, migración etc. Si bien, esta información no se obtenía con fines estadísticos si se puede extraer información útil para la inferencia estadística <span class="citation">(<a href="#ref-Erciulescu2018" role="doc-biblioref">Erciulescu, Franco, y Lahiri 2018</a>)</span>. En <span class="citation">(<a href="#ref-Brackstone1987" role="doc-biblioref">Brackstone 1987</a>)</span> se menciona que el uso de los registros administrativos para EAP data de siglo XI en Inglaterra, y el siglo XVII en Canadá. Existen registros que estos métodos empezaron a ser utilizados en Inglaterra, Estados Unidos y Canadá hacia finales del siglo XIX. <span class="citation">(<a href="#ref-Zhang2016" role="doc-biblioref">Zhang y Giusti 2016</a>)</span> hicieron una revisión exhaustiva de EAP basados en registros.</p>
 <p>En años posteriores y con el nacimiento de las encuestas de población se desarrollaron métodos que combinan censos o encuestas con registros administrativos. <span class="citation">(<a href="#ref-Pursell1980" role="doc-biblioref">Purcell y Kish 1980</a>)</span> categorizaron esta clase de métodos bajo el nombre de <em>Técnicas Contables Sintomáticas (SAT en inglés)</em>. <span class="citation">(<a href="#ref-Gosh&amp;Rao1994" role="doc-biblioref">Ghosh y Rao 1994, 55-93</a>)</span> mencionan algunos de los métodos descritos en la literatura, estos son: las Vital Rates method <em>(Bogue, 1950)</em>, método compuesto <em>(Bogue y Duncan, 1959)</em>, el Método del Componente del Censo II (CM-II) <em>(U.S. Bureau of the Census, 1966)</em>, y el método de Registros Administrativos (AR) <em>(Starsinic, 1974)</em>, y el método de Unidad de Vivienda (HU) <em>(Smith y Lewis, 1980)</em>.</p>
 <p>Actualmente las EAP han causado cada vez más interés en el sector público y privado debido a la alta demanda de obtener estimadores confiables para áreas pequeñas. Por ejemplo: “[…] se necesitan estadísticas de áreas pequeñas en la distribución de fondos gubernamentales y en la planificación regional y urbana. Además, […] la formulación de políticas de muchas empresas e industrias depende de las condiciones socio económicas locales.” <span class="citation">(<a href="#ref-Gosh&amp;Rao1994" role="doc-biblioref">Ghosh y Rao 1994, 56</a>)</span></p>
-<p>Como se mencionó anteriormente, la importancia estadística ha crecido en los últimos años por lo que también lo han hecho el número de investigaciones sobre el tema. El Instituto Nacional de Estadística (INE) de España en <span class="citation">(<a href="#ref-Paños2000" role="doc-biblioref">Paños 2000</a>)</span> utilizó estas técnicas para la Encuesta de Población Activa con información auxiliar de registros de población y laborales con el objetivo de estimar la población ocupada de las islas de Canarias. Este autor recurre a estimadores sintéticos, a posteriori y compuestos, comparando su coeficiente de variación para determinar cuál es el menor sesgo. Concluyó que las variables explicativas, así como la diferencia entre los vectores de efectivos observacionales que proporciona la EPA y la fuente estadística auxiliar serán determinantes de las varianzas estimadas del modelo.</p>
+<p>Como se mencionó anteriormente, la importancia estadística ha crecido en los últimos años por lo que también lo han hecho el número de investigaciones sobre el tema. El Instituto Nacional de Estadística (INE) de España en <span class="citation">(<a href="#ref-Pa%C3%B1os2000" role="doc-biblioref">Paños 2000</a>)</span> utilizó estas técnicas para la Encuesta de Población Activa con información auxiliar de registros de población y laborales con el objetivo de estimar la población ocupada de las islas de Canarias. Este autor recurre a estimadores sintéticos, a posteriori y compuestos, comparando su coeficiente de variación para determinar cuál es el menor sesgo. Concluyó que las variables explicativas, así como la diferencia entre los vectores de efectivos observacionales que proporciona la EPA y la fuente estadística auxiliar serán determinantes de las varianzas estimadas del modelo.</p>
 <p>En <span class="citation">(<a href="#ref-Molina2010" role="doc-biblioref">Molina y Rao 2010</a>)</span>, realizaron un estudio para España en que se propone el uso de predicadores empíricos (EBP) obtenidos por simulaciones Monte Carlo para demostrar que las EBP de los indicadores de pobreza funcionan bien en términos de sesgo y MSE, en comparación con EAP desarrollados para la estimación de características lineales. También proponen un método de arranque paramétrico para la estimación de MSE y estudiar su sesgo a través de simulaciones. Sus resultados arrojaron que hay una reducción significativa en el coeficiente de variación de los mejores estimadores empíricos propuestos sobre los estimadores directos para prácticamente todos los dominios estudiados.</p>
 <p>El <span class="citation">(<a href="#ref-Ministerio2017" role="doc-biblioref">Desarrollo Social y Familiar 2017</a>)</span> realizó un documento en el que reporta sus hallazgos del uso de las EAP para la estimación de las tasas de pobreza en Chile a través la encuesta CASEN desde 2009 hasta 2017. En el documento se explica que y como se llevaron a cabo las estimaciones para cada año de la encuesta, así como sus actualizaciones metodológicas. Principalmente se utilizó el modelo de Fay-Harriot (1979) con variaciones a lo largo de los años.</p>
 <p>Para el caso de México, el Instituto Nacional de Estadística y Geografía (INEGI) ha realizado varios trabajos de estimación en áreas pequeñas. En 2020, realizó un estudio sobre la <em>Prevalencia de Hipertensión y Obesidad, Diabetes para los Municipios de México 2018</em>. El objetivo de la institución fue de “estimar la proporción de la población de 20 años y más que padece enfermedades de Obesidad, para los municipios de México, mediante técnicas de Estimación para Áreas Pequeñas (EAP), a fin de ampliar la oferta de información derivada de la Encuesta Nacional de Salud y Nutrición (ENSANUT, 2018) y apoyar la toma de decisiones”.<span class="citation">(<a href="#ref-INEGI2020EAP" role="doc-biblioref">INEGI 2020</a>)</span></p>
-<p>Por otra parte, <span class="citation">(<a href="#ref-Suárez2015" role="doc-biblioref">Suárez Campos M. A. 2015</a>)</span> realizó un estudio sobre los ingresos por trabajo en la vivienda para todos los municipios y alcaldías de México. Hace comparación de los resultados de la estimación directa y los obtenidos por EAP. Utilizó los datos publicados por la ENIGH 2010 y CPV 2010. A través del modelo de Fay-Harriot (1979) comprueba la eficiencia de estas técnicas para estimaciones en pequeñas áreas que las encuestas no logran cubrir con suficientes datos.</p>
-<p>El trabajo de <span class="citation">(<a href="#ref-Campos2010" role="doc-biblioref">A. 2010</a>)</span> se combina la información de la ENIGH del año 2005 y el II Conteo de población y Vivienda levantado también en el año 2005 en particular del Estado de Sonora, mediante la aplicación y comparación de técnicas estadísticas que estiman y/o predicen el valor promedio del ingreso de los hogares en los 72 municipios del estado.</p>
+<p>Por otra parte, <span class="citation">(<a href="#ref-Su%C3%A1rez2015" role="doc-biblioref">Suárez Campos 2015</a>)</span> realizó un estudio sobre los ingresos por trabajo en la vivienda para todos los municipios y alcaldías de México. Hace comparación de los resultados de la estimación directa y los obtenidos por EAP. Utilizó los datos publicados por la ENIGH 2010 y CPV 2010. A través del modelo de Fay-Harriot (1979) comprueba la eficiencia de estas técnicas para estimaciones en pequeñas áreas que las encuestas no logran cubrir con suficientes datos.</p>
+<p>El trabajo de <span class="citation">(<a href="#ref-Su%C3%A1rez2010" role="doc-biblioref">Campos 2010</a>)</span> se combina la información de la ENIGH del año 2005 y el II Conteo de población y Vivienda levantado también en el año 2005 en particular del Estado de Sonora, mediante la aplicación y comparación de técnicas estadísticas que estiman y/o predicen el valor promedio del ingreso de los hogares en los 72 municipios del estado.</p>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-A., Suárez Campos M. 2010. <span>«Estimación del Ingreso Promedio por Vivienda en los Municipios del Estado de Sonora»</span>. CIMAT.
-</div>
-<div class="csl-entry">
-Brackstone. 1987. <span>«Small area data: policy issues and technical challenges.»</span>, 3-20.
-</div>
-<div class="csl-entry">
-Desarrollo Social y Familiar, Ministerio de. 2017. <span>«Estimaciones de la tasa de pobreza por ingresos y multidimensional a nivel comunal, año 2017»</span>.
-</div>
-<div class="csl-entry">
-Erciulescu, Andreea L, Carolina Franco, y Partha Lahiri. 2018. <span>«Chapter: Use of Administrative Records in Small Area Estimation»</span>.
-</div>
-<div class="csl-entry">
-Ghosh, M., y J. N. K. Rao. 1994. <span>«Small Area Estimation: An Appraisal»</span>. <em>Statistical Science</em> 9 (1): 55-76. <a href="http://www.jstor.org/stable/2246284">http://www.jstor.org/stable/2246284</a>.
-</div>
-<div class="csl-entry">
-INEGI. 2020. <span>«Prevalencia de Obesidad, Hipertensión y Diabetes para los Municipios de México 2018»</span>.
-</div>
-<div class="csl-entry">
-Jesus, Mancho Corcuera. 2002. <span>«Técnicas de estimación en áreas pequeñas»</span>. <em>Eustat</em>.
-</div>
-<div class="csl-entry">
-Molina, Isabel, y J. N. K. Rao. 2010. <span>«Small area estimation of poverty indicators»</span>. <em>Canadian Journal of Statistics</em> 38 (3): 369-85. https://doi.org/<a href="https://doi.org/10.1002/cjs.10051">https://doi.org/10.1002/cjs.10051</a>.
-</div>
-<div class="csl-entry">
-Paños, López. 2000. <span>«Estimaciones para áreas pequeñas(1)»</span>. <em>Estadistica Española</em> 42: 291-338.
-</div>
-<div class="csl-entry">
-Purcell, Noel J., y Leslie Kish. 1980. <span>«Postcensal Estimates for Local Areas (Or Domains)»</span>. <em>International Statistical Review / Revue Internationale de Statistique</em> 48 (1): 3-18. <a href="http://www.jstor.org/stable/1402400">http://www.jstor.org/stable/1402400</a>.
-</div>
-<div class="csl-entry">
-Suárez Campos M. A., Aguilar Mata G. y Mejía González R. 2015. <span>«Estimación del ingreso por trabajo en los municipios y las delegaciones de México utilizando técnicas de estimación para áreas pequeñas»</span>. <em>REALITY, DATA AND SPACE. INTERNATIONAL JOURNAL OF STATISTICS AND GEOGRAPHY</em> 6 (3). <a href="https://www.inegi.org.mx">www.inegi.org.mx</a>.
-</div>
-<div class="csl-entry">
-Zhang, Li-Chun, y Caterina Giusti. 2016. <span>«Small Area Methods and Administrative Data Integration»</span>. En <em>Analysis of Poverty Data by Small Area Estimation</em>, 61-82. John Wiley &amp; Sons, Ltd. https://doi.org/<a href="https://doi.org/10.1002/9781118814963.ch4">https://doi.org/10.1002/9781118814963.ch4</a>.
-</div>
-</div>
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Campos2010" class="csl-entry">
-A., Suárez Campos M. 2010. <span>«Estimación del Ingreso Promedio por Vivienda en los Municipios del Estado de Sonora»</span>. CIMAT.
-</div>
 <div id="ref-Brackstone1987" class="csl-entry">
 Brackstone. 1987. <span>«Small area data: policy issues and technical challenges.»</span>, 3-20.
+</div>
+<div id="ref-Suárez2010" class="csl-entry">
+Campos, Suárez. 2010. <span>«Estimación del Ingreso Promedio por Vivienda en los Municipios del Estado de Sonora»</span>. CIMAT.
 </div>
 <div id="ref-Ministerio2017" class="csl-entry">
 Desarrollo Social y Familiar, Ministerio de. 2017. <span>«Estimaciones de la tasa de pobreza por ingresos y multidimensional a nivel comunal, año 2017»</span>.
@@ -217,72 +128,50 @@ Paños, López. 2000. <span>«Estimaciones para áreas pequeñas(1)»</span>. <e
 Purcell, Noel J., y Leslie Kish. 1980. <span>«Postcensal Estimates for Local Areas (Or Domains)»</span>. <em>International Statistical Review / Revue Internationale de Statistique</em> 48 (1): 3-18. <a href="http://www.jstor.org/stable/1402400">http://www.jstor.org/stable/1402400</a>.
 </div>
 <div id="ref-Suárez2015" class="csl-entry">
-Suárez Campos M. A., Aguilar Mata G. y Mejía González R. 2015. <span>«Estimación del ingreso por trabajo en los municipios y las delegaciones de México utilizando técnicas de estimación para áreas pequeñas»</span>. <em>REALITY, DATA AND SPACE. INTERNATIONAL JOURNAL OF STATISTICS AND GEOGRAPHY</em> 6 (3). <a href="https://www.inegi.org.mx">www.inegi.org.mx</a>.
+Suárez Campos, Aguilar Mata G. y Mejía González R. 2015. <span>«Estimación del ingreso por trabajo en los municipios y las delegaciones de México utilizando técnicas de estimación para áreas pequeñas»</span>. <em>REALITY, DATA AND SPACE. INTERNATIONAL JOURNAL OF STATISTICS AND GEOGRAPHY</em> 6 (3). <a href="https://www.inegi.org.mx">www.inegi.org.mx</a>.
 </div>
 <div id="ref-Zhang2016" class="csl-entry">
 Zhang, Li-Chun, y Caterina Giusti. 2016. <span>«Small Area Methods and Administrative Data Integration»</span>. En <em>Analysis of Poverty Data by Small Area Estimation</em>, 61-82. John Wiley &amp; Sons, Ltd. https://doi.org/<a href="https://doi.org/10.1002/9781118814963.ch4">https://doi.org/10.1002/9781118814963.ch4</a>.
 </div>
 </div>
-            </section>
+</div>
+</div>
+  
 
-          </div>
-        </div>
-      </div>
+  
 
+</div>
+<div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introducci%C3%B3n">Introducción</a></li>
+<li><a class="nav-link" href="#antecedentes">Antecedentes</a></li>
+</ul>
 
-    </div>
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Estimación en areas pequeñas</strong>" was written by Alvaro Martínez Rodríguez. It was last built on 2022-05-11.</p>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https:https://github.com/Alvaro1899/Manual/index.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf", "_main.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
-});
-});
-</script>
 
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</div>
 </body>
-
 </html>
