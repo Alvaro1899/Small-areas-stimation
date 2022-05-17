@@ -4,12 +4,7 @@
 %
 \documentclass[
   11pt,
-  spanish,
   oneside]{book}
-\title{Estimación en areas pequeñas}
-\author{Alvaro Martínez Rodríguez}
-\date{2022-05-11}
-
 \usepackage{amsmath,amssymb}
 \usepackage[]{times}
 \usepackage{iftex}
@@ -76,25 +71,28 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{spanish}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
 \usepackage{booktabs}
 \usepackage[utf8]{inputenc}
 \usepackage[Glenn]{fncychap}
 \pagestyle{plain}
-\ifXeTeX
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{spanish}
-\else
-  \usepackage[main=spanish]{babel}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
-\fi
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
+
+\title{Estimación en areas pequeñas}
+\author{Alvaro Martínez Rodríguez}
+\date{2022-05-17}
 
 \begin{document}
 \maketitle
@@ -107,11 +105,11 @@
 \chapter*{Introducción}\label{introducciuxf3n}}
 \addcontentsline{toc}{chapter}{Introducción}
 
-Las técnicas de estimación en áreas pequeñas (EAP) han cobrado relevancia a lo largo de los años, pues resuelve los problemas que generan la falta de información en la inferencia estadística clásica. De forma general, el método consiste en la utilización de censos o encuestas y de información auxiliar para ``tomar prestada la fuerza'' y mejorar las estimaciones. El término ``área pequeña'' hace referencia a un área geográfica pequeña para la cual la muestra tomada de ella es insuficiente o no existe. Estas áreas suelen ser municipios, comarcas, alcaldías o sub-poblaciones.
+Las técnicas de estimación en áreas pequeñas (EAP) se diseñaron para resolver los problemas que genera la falta de información en la inferencia estadística clásica. De forma general, el método consiste en la utilización de censos o encuestas y de información auxiliar para ``tomar prestada la fuerza'', es decir, la riqueza de información de otras fuentes y así mejorar las estimaciones. El término ``área pequeña'' hace referencia a un área geográfica pequeña para la cual la muestra tomada de ella es insuficiente o no existe. Estas áreas suelen ser municipios, comarcas, alcaldías o sub-poblaciones.
 
-Para explicar de mejor manera a que se llama \emph{área pequeña} se ilustra el siguiente ejemplo:
+Para explicar de mejor manera a qué se llama \emph{área pequeña} se ilustra el siguiente ejemplo:
 
-Tenemos el siguiente cuadrado que representa un país 1.1 que esta subdividido en 9 entidades y se saca una muestra aleatoria representativa de cada entidad para observar el promedio del ingreso de cada sub-población. Con esto no tendríamos ningún problema para elaborar algún modelo de estimación del ingreso en el país (estimaciones directas), sin embargo, si quisiéramos trabajar con un nivel geográfico más pequeño, un municipio, por ejemplo, es probable que la muestra tomada de cada sub-población resulte insuficiente para realizar estimaciones puesto que habrá municipios de los que se tomó una mayor muestra o que ni siquiera estén representados. A estas se les conoce áreas pequeñas y se recurre a técnicas estadísticas especiales (estimaciones indirectas) para su estimación ya que resulta mucho más barato que tomar una mayor muestra. \textbf{(Como se puede citar un video de youtube)}
+Tenemos el siguiente cuadrado que representa un país 1.1 que esta subdividido en 9 entidades y se saca una muestra aleatoria representativa de cada entidad para observar el promedio del ingreso de cada sub-población. Con esto no tendríamos ningún problema para elaborar algún modelo de estimación del ingreso en el país (estimaciones directas); sin embargo, si quisiéramos trabajar con un nivel geográfico más pequeño, un municipio, por ejemplo, es probable que la muestra tomada de cada sub-población resulte insuficiente para realizar estimaciones puesto que habrá municipios de los que se tomó una mayor muestra o que ni siquiera estén representados. A estas se les conoce áreas pequeñas y se recurre a técnicas estadísticas especiales (estimaciones indirectas) para su estimación ya que resulta mucho más asequiblee que tomar una mayor muestra. \textbf{(Como se puede citar un video de youtube)}
 
 \begin{figure}
 
@@ -126,23 +124,23 @@ Tenemos el siguiente cuadrado que representa un país 1.1 que esta subdividido e
 \section*{Antecedentes}\label{antecedentes}}
 \addcontentsline{toc}{section}{Antecedentes}
 
-Las EAP evolucionaron de métodos demográficos para la estimación de la población \citep[p.~55-93]{Gosh&Rao1994} \citep[p.~3]{Mancho2002}. Antes de los censos utilizaban registros administrativos poblacionales como nacimientos, muertes, migración etc. Si bien, esta información no se obtenía con fines estadísticos si se puede extraer información útil para la inferencia estadística \citep{Erciulescu2018}. En \citep{Brackstone1987} se menciona que el uso de los registros administrativos para EAP data de siglo XI en Inglaterra, y el siglo XVII en Canadá. Existen registros que estos métodos empezaron a ser utilizados en Inglaterra, Estados Unidos y Canadá hacia finales del siglo XIX. \citep{Zhang2016} hicieron una revisión exhaustiva de EAP basados en registros.
+Las EAP evolucionaron de métodos demográficos para la estimación de la población \citep[p.~55-93]{Gosh&Rao1994} \citep[p.~3]{Mancho2002}. Antes de los censos utilizaban registros administrativos poblacionales relativos a nacimientos, muertes, migración, etc. Si bien esta información no se obtenía con fines estadísticos, sí se puede extraer información útil para la inferencia estadística \citep{Erciulescu2018}. En \citep{Brackstone1987} se menciona que el uso de los registros administrativos para EAP data de siglo XI en Inglaterra, y el siglo XVII en Canadá. Existen registros que estos métodos empezaron a ser utilizados en Inglaterra, Estados Unidos y Canadá hacia finales del siglo XIX. \citep{Zhang2016} hicieron una revisión exhaustiva de EAP basados en registros.
 
-En años posteriores y con el nacimiento de las encuestas de población se desarrollaron métodos que combinan censos o encuestas con registros administrativos. \citep{Pursell1980} categorizaron esta clase de métodos bajo el nombre de \emph{Técnicas Contables Sintomáticas (SAT en inglés)}. \citep[p.~55-93]{Gosh&Rao1994} mencionan algunos de los métodos descritos en la literatura, estos son: las Vital Rates method \emph{(Bogue, 1950)}, método compuesto \emph{(Bogue y Duncan, 1959)}, el Método del Componente del Censo II (CM-II) \emph{(U.S. Bureau of the Census, 1966)}, y el método de Registros Administrativos (AR) \emph{(Starsinic, 1974)}, y el método de Unidad de Vivienda (HU) \emph{(Smith y Lewis, 1980)}.
+En años posteriores y con el nacimiento de las encuestas de población, se desarrollaron métodos que combinan censos o encuestas con registros administrativos. \citep{Pursell1980} categorizaron esta clase de métodos bajo el nombre de \emph{Técnicas Contables Sintomáticas (SAT en inglés)}. \citep[p.~55-93]{Gosh&Rao1994} mencionan algunos de los métodos descritos en la literatura, estos son: las \emph{Vital Rates method } \emph{(Bogue, 1950)}, método compuesto \emph{(Bogue y Duncan, 1959)}, el Método del Componente del Censo II (CM-II) \emph{(U.S. Bureau of the Census, 1966)}, el método de Registros Administrativos (AR) \emph{(Starsinic, 1974)}, y el método de Unidad de Vivienda (HU) \emph{(Smith y Lewis, 1980)}.
 
-Actualmente las EAP han causado cada vez más interés en el sector público y privado debido a la alta demanda de obtener estimadores confiables para áreas pequeñas. Por ejemplo: ``{[}\ldots{]} se necesitan estadísticas de áreas pequeñas en la distribución de fondos gubernamentales y en la planificación regional y urbana. Además, {[}\ldots{]} la formulación de políticas de muchas empresas e industrias depende de las condiciones socio económicas locales.'' \citep[p.~56]{Gosh&Rao1994}
+Actualmente las EAP han causado cada vez más interés en el sector público y privado debido a la alta demanda de obtener estimadores confiables para áreas pequeñas. Por ejemplo: ``{[}\ldots{]} se necesitan estadísticas de áreas pequeñas en la distribución de fondos gubernamentales y en la planificación regional y urbana. Además, {[}\ldots{]} la formulación de políticas de muchas empresas e industrias depende de las condiciones socio económicas locales'' \citep[p.~56]{Gosh&Rao1994}.
 
-Como se mencionó anteriormente, la importancia estadística ha crecido en los últimos años por lo que también lo han hecho el número de investigaciones sobre el tema. El Instituto Nacional de Estadística (INE) de España en \citep{Paños2000} utilizó estas técnicas para la Encuesta de Población Activa con información auxiliar de registros de población y laborales con el objetivo de estimar la población ocupada de las islas de Canarias. Este autor recurre a estimadores sintéticos, a posteriori y compuestos, comparando su coeficiente de variación para determinar cuál es el menor sesgo. Concluyó que las variables explicativas, así como la diferencia entre los vectores de efectivos observacionales que proporciona la EPA y la fuente estadística auxiliar serán determinantes de las varianzas estimadas del modelo.
+Como se mencionó anteriormente, la importancia estadística ha crecido en los últimos años por lo que también lo han hecho el número de investigaciones sobre el tema. El Instituto Nacional de Estadística (INE) de España, utilizó estas técnicas para la Encuesta de Población Activa con información auxiliar de registros de población y laborales con el objetivo de estimar la población ocupada de las islas de Canarias \citep{Paños2000}. Se recurrió a estimadores sintéticos, a posteriori y compuestos, comparando su coeficiente de variación para determinar cuál es el menor sesgo. Se concluyó que las variables explicativas, así como la diferencia entre los vectores de efectivos observacionales que proporciona la EPA y la fuente estadística auxiliar serán determinantes de las varianzas estimadas del modelo.
 
-En \citep{Molina2010}, realizaron un estudio para España en que se propone el uso de predicadores empíricos (EBP) obtenidos por simulaciones Monte Carlo para demostrar que las EBP de los indicadores de pobreza funcionan bien en términos de sesgo y MSE, en comparación con EAP desarrollados para la estimación de características lineales. También proponen un método de arranque paramétrico para la estimación de MSE y estudiar su sesgo a través de simulaciones. Sus resultados arrojaron que hay una reducción significativa en el coeficiente de variación de los mejores estimadores empíricos propuestos sobre los estimadores directos para prácticamente todos los dominios estudiados.
+\citep{Molina2010} realizaron un estudio para España en que se propone el uso de predicadores empíricos (EBP) obtenidos por simulaciones Monte Carlo para demostrar que las EBP de los indicadores de pobreza funcionan bien en términos de sesgo y MSE, en comparación con EAP desarrollados para la estimación de características lineales. También proponen un método de arranque paramétrico para la estimación de MSE y estudiar su sesgo a través de simulaciones. Sus resultados arrojaron que hay una reducción significativa en el coeficiente de variación de los mejores estimadores empíricos propuestos sobre los estimadores directos para prácticamente todos los dominios estudiados.
 
-El \citep{Ministerio2017} realizó un documento en el que reporta sus hallazgos del uso de las EAP para la estimación de las tasas de pobreza en Chile a través la encuesta CASEN desde 2009 hasta 2017. En el documento se explica que y como se llevaron a cabo las estimaciones para cada año de la encuesta, así como sus actualizaciones metodológicas. Principalmente se utilizó el modelo de Fay-Harriot (1979) con variaciones a lo largo de los años.
+El \citep{Ministerio2017} realizó un documento en el que reporta sus hallazgos del uso de las EAP para la estimación de las tasas de pobreza en Chile a través la encuesta CASEN desde 2009 hasta 2017. En el documento se explica cómo se llevaron a cabo las estimaciones para cada año de la encuesta, así como sus actualizaciones metodológicas. Principalmente se utilizó el modelo de Fay-Harriot (1979) con variaciones a lo largo de los años.
 
-Para el caso de México, el Instituto Nacional de Estadística y Geografía (INEGI) ha realizado varios trabajos de estimación en áreas pequeñas. En 2020, realizó un estudio sobre la \emph{Prevalencia de Hipertensión y Obesidad, Diabetes para los Municipios de México 2018}. El objetivo de la institución fue de ``estimar la proporción de la población de 20 años y más que padece enfermedades de Obesidad, para los municipios de México, mediante técnicas de Estimación para Áreas Pequeñas (EAP), a fin de ampliar la oferta de información derivada de la Encuesta Nacional de Salud y Nutrición (ENSANUT, 2018) y apoyar la toma de decisiones''.\citep{INEGI2020EAP}
+Para el caso de México, el Instituto Nacional de Estadística y Geografía (INEGI) ha realizado varios trabajos de estimación en áreas pequeñas. En 2020, realizó un estudio sobre la \emph{Prevalencia de Hipertensión y Obesidad, Diabetes para los Municipios de México 2018}. El objetivo de la institución fue de ``estimar la proporción de la población de 20 años y más que padece enfermedades de Obesidad, para los municipios de México, mediante técnicas de Estimación para Áreas Pequeñas (EAP), a fin de ampliar la oferta de información derivada de la Encuesta Nacional de Salud y Nutrición (ENSANUT, 2018) y apoyar la toma de decisiones''\citep{INEGI2020EAP}.
 
 Por otra parte, \citep{Suárez2015} realizó un estudio sobre los ingresos por trabajo en la vivienda para todos los municipios y alcaldías de México. Hace comparación de los resultados de la estimación directa y los obtenidos por EAP. Utilizó los datos publicados por la ENIGH 2010 y CPV 2010. A través del modelo de Fay-Harriot (1979) comprueba la eficiencia de estas técnicas para estimaciones en pequeñas áreas que las encuestas no logran cubrir con suficientes datos.
 
-El trabajo de \citep{Campos2010} se combina la información de la ENIGH del año 2005 y el II Conteo de población y Vivienda levantado también en el año 2005 en particular del Estado de Sonora, mediante la aplicación y comparación de técnicas estadísticas que estiman y/o predicen el valor promedio del ingreso de los hogares en los 72 municipios del estado.
+El trabajo de \citep{Suárez2010} se combina la información de la ENIGH del año 2005 y el II Conteo de población y Vivienda levantado también en el año 2005 en particular del Estado de Sonora, mediante la aplicación y comparación de técnicas estadísticas que estiman y/o predicen el valor promedio del ingreso de los hogares en los 72 municipios del estado.
 
   \bibliography{book.bib}
 
