@@ -9,5 +9,6 @@ tener más orden. Es decir, hay que publicarlo desde R.
 5. En el documento 01-Ejemplo, parece que sigues y traduces un tutorial. Sugiero que en lugar de ello, tomando como base lo ya hecho, expongas con tus propias palabras (lo mejor posible) siguiendo dicho tutorial.
 
 
+18/de mayo
 
-
+1.Describir de manera general en que consiste un área pequeña y la forma en que se estima (método).
