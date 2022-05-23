@@ -31,8 +31,7 @@ lang: es
 
 # Introducción {-}
 
- <div style="text-align: justify">
-Las técnicas de estimación en áreas pequeñas (EAP) se diseñaron para resolver los problemas que genera la falta de información en la inferencia estadística clásica. De forma general, el método consiste en la utilización de censos o encuestas y de información auxiliar para "tomar prestada la fuerza", es decir, la riqueza de información de otras fuentes y así mejorar las estimaciones. El término "área pequeña" hace referencia a un área geográfica pequeña para la cual la muestra tomada de ella es insuficiente o no existe. Estas áreas suelen ser municipios, comarcas, alcaldías o sub-poblaciones.
+Las técnicas de estimación en áreas pequeñas (EAP) se diseñaron para resolver los problemas que genera la falta de información en la inferencia estadística clásica. El término "área pequeña" hace referencia a un área geográfica pequeña o dominio para la cual la muestra tomada de ella es insuficiente o no existe para producir estimaciones directas de precisión adecuada. Estas áreas suelen ser municipios, comarcas, alcaldías o sub-poblaciones.
 
 Para explicar de mejor manera a qué se llama _área pequeña_ se ilustra el siguiente ejemplo:
 
@@ -41,6 +40,10 @@ Tenemos el siguiente cuadrado que representa un país 1.1 que esta subdividido e
 ```{r, echo=FALSE, fig.align='center',out.width='100%',fig.cap='Áreas pequeñas'} 
 knitr::include_graphics("imagenes/Imagen 1.1.png")
 ```
+
+De forma general, el método consiste en la utilización de censos o encuestas y de información auxiliar para "tomar prestada la fuerza" al usar los valores de la variable de interés, y así, aumentar el tamaño de la muestra "efectivo", es decir, tomar la riqueza de información de otras fuentes y así mejorar las estimaciones. A estos estimadores se les conoce como "indirectos", "sintéticos" o de "área pequeña".
+
+En [@Gosh&Rao1994] se explica que los estimadores indirectos tradicionales basados en modelos de vinculación implícita, incluyen estimadores sintéticos y compuestos. Estos estimadores están basados normalmente en el diseño muestral. Aunque los estimadores indirectos suelen variar menos que los directos, su sesgo no disminuye conforme aumenta el tamaño de la muestra, por lo que el tamaño del sesgo del stimador dependera del modelo de enlace implícito.
 
 ## Antecedentes {-}
 
