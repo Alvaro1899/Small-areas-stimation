@@ -31,7 +31,6 @@ lang: es
 
 # Introducción {-}
 
- <div style="text-align: justify">
 Las técnicas de estimación en áreas pequeñas (EAP) se diseñaron para resolver los problemas que genera la falta de información en la inferencia estadística clásica. De forma general, el método consiste en la utilización de censos o encuestas y de información auxiliar para "tomar prestada la fuerza", es decir, la riqueza de información de otras fuentes y así mejorar las estimaciones. El término "área pequeña" hace referencia a un área geográfica pequeña para la cual la muestra tomada de ella es insuficiente o no existe. Estas áreas suelen ser municipios, comarcas, alcaldías o sub-poblaciones.
 
 Para explicar de mejor manera a qué se llama _área pequeña_ se ilustra el siguiente ejemplo:
